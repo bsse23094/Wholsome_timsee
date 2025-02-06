@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,22 +47,19 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            flex-wrap: wrap;
             margin-top: 20px;
         }
-        .image-container {
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+        .gif-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
-        .image-container:hover {
-            transform: scale(1.1);
-            box-shadow: 0px 4px 15px #f9d9e2;
-        }
-        img {
-            max-width: 150px;
+        .image-container img {
+            width: 120px;
             height: auto;
-            border-radius: 15px;
+            border-radius: 10px;
         }
         .heart {
             font-size: 4em;
@@ -108,7 +104,12 @@
             transform: scale(1.05);
             box-shadow: 0px 8px 20px rgba(255, 105, 180, 0.9);
             color: #ff1493;
+        }
 
+        @media (min-width: 768px) {
+            .gif-container {
+                flex-direction: row;
+            }
         }
     </style>
 </head>
@@ -117,12 +118,14 @@
     <div class="card">
         <h1>Kuromi & Batman's Valentine's Day</h1>
         <div class="container">
-            <div class="image-container">
-                <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbndoZTdqdzJkeXR4a3IzNHRtd3ZhaDI3eDJsajh4YTZmbTFjYm9qMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/l2FSi4zPU5dnLyd7Q4/giphy.gif" alt="Kuromi">
-            </div>
-            <span class="heart">❤️</span>
-            <div class="image-container">
-                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGwyeWRtMnEycGdpMWt6eGl2cWg0N2cxYjM1c2pjbHgxMnc0c3BudCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/TgFtjHccwviciJ92zU/giphy.gif" alt="Batman">
+            <div class="gif-container">
+                <div class="image-container">
+                    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbndoZTdqdzJkeXR4a3IzNHRtd3ZhaDI3eDJsajh4YTZmbTFjYm9qMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/l2FSi4zPU5dnLyd7Q4/giphy.gif" alt="Kuromi">
+                </div>
+                <span class="heart">❤️</span>
+                <div class="image-container">
+                    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGwyeWRtMnEycGdpMWt6eGl2cWg0N2cxYjM1c2pjbHgxMnc0c3BudCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/TgFtjHccwviciJ92zU/giphy.gif" alt="Batman">
+                </div>
             </div>
         </div>
         <div class="buttons">
@@ -140,7 +143,6 @@
             if (type === "kuromi") {
                 messageBox.innerHTML = "💕 You are the sweetest thing in my world Timsee! 💖";
             } else if (type === "batman") {
-                let today = new Date();
                 let date = "February 14th";
                 let location = "English Tea House 🦇💘"; 
                 messageBox.innerHTML = `📅 Date: ${date} <br> 📍 Location: ${location}`;
@@ -148,4 +150,4 @@
         }
     </script>
 </body>
-</html> 
+</html>
